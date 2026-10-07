@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        Expense Management
+    </div>
+
+    <div>
+        <span id="managerEmail"></span>
+
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+    </div>
+
+</nav>
+
+
+<div class="dashboard">
+
+    <h1>Manager Dashboard</h1>
+
+    <div class="card">
+
+        <div class="section-header">
+
+            <h2>Pending Expenses</h2>
+
+            <button
+                    class="refresh-btn"
+                    onclick="loadPendingExpenses()">
+                Refresh
+            </button>
+
+        </div>
+
+        <div id="managerMessage" class="message"></div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Created</th>
+                    <th>Action</th>
+                </tr>
+
+                </thead>
+
+                <tbody id="pendingTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Reject popup -->
+
+<div id="rejectModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Reject Expense</h2>
+
+        <input type="hidden" id="rejectExpenseId">
+
+        <label>Reason</label>
+
+        <textarea
+                id="rejectComment"
+                placeholder="Enter rejection reason"
+                required
+        ></textarea>
+
+        <div class="modal-buttons">
+
+            <button onclick="confirmReject()">
+                Reject
+            </button>
+
+            <button
+                    class="cancel-btn"
+                    onclick="closeRejectModal()">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
